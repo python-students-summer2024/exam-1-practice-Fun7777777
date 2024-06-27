@@ -31,3 +31,35 @@ def weather_helper():
     4. The capitalization of the user's responses must not matter to the outcome of the program.
   """
 
+  yes = ["yes", "yeah", "yup"]
+  nos = ["no", "nah", "nope"]
+
+  temp = int(input("Temp: "))
+
+  if not (134 >= temp >= -70):
+    print("Invalid temperature!")
+    return
+
+  if temp > 90:
+    ac = input("A/C: ").lower()
+    if ac in yes:
+      print("Stay cool indoors.")
+    else:
+      print("I hope you have a fan.")
+
+  elif temp < 40:
+    snowing = input("Snowing: ").lower()
+    if snowing in yes:
+      jacket = input("Jacket: ").lower()
+      if jacket in yes:
+        print("Glad to hear you're dressed appropriately!")
+      else:
+        print("What were you thinking when you left home today?!")
+    else:
+      raining = input("Raining: ").lower()
+      if raining in yes:
+        umbrella = input("Umbrella: ").lower()
+        if umbrella in yes:
+          print("Good job staying dry!")
+        else:
+          print("You must enjoy getting wet!")

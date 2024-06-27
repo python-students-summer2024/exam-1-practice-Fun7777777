@@ -12,6 +12,8 @@ import random
 # This function accepts two arguments: a minimum value and a maximum value.
 # The function must return a random integer between these two values, inclusive.
 # Use the function random.randint() to generate the pseudo-random number.
+def get_random_int(low, high):
+    return random.randint(low, high)
 
 
 ##--------------------- Function #2 ---------------------##
@@ -22,7 +24,15 @@ import random
 # If the user has entered an invalid response (i.e. anything that is not an integer in this range), the function returns an integer, -1.
 # If the user has guessed the random integer correctly, this function returns a boolean True.
 # If the user has guessed incorrectly, this function returns a boolean False.
-
+def get_guess(max):
+    num = get_random_int(1, max)
+    response = input("Guess: ")
+    if response.isnumeric() and int(response) == num:
+        return True
+    elif response.isnumeric() and 1 <= int(response) <= max:
+        return False
+    else:
+        return -1
 
 ##--------------------- Function #3 ---------------------##
 # Define a function named 'play_game'.
@@ -31,4 +41,61 @@ import random
 # Each time the user guesses, they are immediately informed whether they guessed correctly or not, with the printed output, "Correct!" or "Wrong!"
 # If at any time, the user enters an invalid response, the program immediately prints out the text, "Invalid response!" and does not print out anything further.
 # At the end, the function, assuming the user has entered all valid guesses, the program prints out the percent of guesses that user guessed correctly, following the format: "You guessed 75% of the random numbers correctly."
+def play_game():
+    max = 5
+    total = 0
+    valid = True
+
+    # first guess
+    result = get_guess(max)
+    if result == -1:
+        valid = False
+    elif result:
+        total += 1
+        print("Correct!")
+    else:
+        print("Wrong!")
+    
+    # second guess
+    if valid:
+        result = get_guess(max)
+        if result == -1:
+            valid = False
+        elif result:
+            total += 1
+            print("Correct!")
+        else:
+            print("Wrong!")
+    
+
+    # third guess
+    if valid:
+        result = get_guess(max)
+        if result == -1:
+            valid = False
+        elif result:
+            total += 1    
+            print("Correct!")
+        else:
+            print("Wrong!")
+
+    # fourth guess
+    if valid:
+        result = get_guess(max)
+        if result == -1:
+            valid = False
+        elif result:
+            total += 1
+            print("Correct!")
+        else:
+            print("Wrong!")
+    
+    if not valid:
+        print("Invalid response!")
+    else:
+        # percent
+        percent = 100 * total / 4
+        percent = format(percent, '.0f')
+        message = "You guessed {}% of the random numbers correctly.".format(percent)
+        print(message)
 

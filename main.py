@@ -10,12 +10,28 @@ from problem_set_3 import *
 
 def main():
   """
-  Place code within this main function to call whichever functions you want 
-  to try out from the other files where you have written code.
+  Makes use of the functions written in the three problem set files.
+  Feel free to comment/uncomment any lines you do not wish to run or not run at the moment.
   """
 
-  # for example... the following line will call the bark() function in problem_set_1 whenever this main.py file is run.
+  # run functions from problem_set_1
+  print("--- RUNNING PROBLEM SET 1 ---\n")
   bark()
+  bark_with_validation()
+  respond_to_anything()
+  respond_to_anything_but_nonsense()
+
+  # run functions from problem_set_2
+  print("--- RUNNING PROBLEM SET 2 ---\n")
+  weather_helper()
+
+  # run functions from problem_set_3
+  print("--- RUNNING PROBLEM SET 3 ---\n")
+  play_game()
+
+  # print out a farewell message
+  print()
+  print("--- BYE BYE! ---")
 
 # call the main function
 main()
