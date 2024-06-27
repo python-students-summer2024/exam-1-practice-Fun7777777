@@ -15,7 +15,22 @@ def main():
   """
 
   # for example... the following line will call the bark() function in problem_set_1 whenever this main.py file is run.
+    # Calling functions from problem_set_1
+
   bark()
+  bark_with_validation()
+  respond_to_anything()
+  respond_to_anything_but_nonsense()
+
+    # Calling functions from problem_set_2
+  random_integer = get_random_int(1, 10)
+  print(f"Random integer: {random_integer}")
+  guess_result = get_guess(5)
+  print(f"Guess result: {guess_result}")
+
+    # Calling functions from problem_set_3
+  play_game()
+
 
 # call the main function
 main()
