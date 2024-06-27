@@ -31,39 +31,35 @@ def weather_helper():
     4. The capitalization of the user's responses must not matter to the outcome of the program.
   """
 
+  yes = ["yes", "yeah", "yup"]
+  nos = ["no", "nah", "nope"]
 
-    temperature = input("Enter the current temperature in degrees Fahrenheit: ").strip()
-    
-    if not temperature.isdigit():
-        print("Invalid temperature!")
-        return
-    
-    temperature = int(temperature)
-    
-    if temperature < -70 or temperature > 134:
-        print("Invalid temperature!")
-        return
-    
-    if temperature < 40:
-        snowing = input("Is it snowing? ").strip().lower()
-        if snowing.startswith("y"):
-            jacket = input("Are you wearing a warm jacket? ").strip().lower()
-            if jacket.startswith("y"):
-                print("Glad to hear you're dressed appropriately!")
-            else:
-                print("What were you thinking when you left home today?!")
+  temp = int(input("Temp: "))
+
+  if not (134 >= temp >= -70):
+    print("Invalid temperature!")
+    return
+
+  if temp > 90:
+    ac = input("A/C: ").lower()
+    if ac in yes:
+      print("Stay cool indoors.")
+    else:
+      print("I hope you have a fan.")
+
+  elif temp < 40:
+    snowing = input("Snowing: ").lower()
+    if snowing in yes:
+      jacket = input("Jacket: ").lower()
+      if jacket in yes:
+        print("Glad to hear you're dressed appropriately!")
+      else:
+        print("What were you thinking when you left home today?!")
+    else:
+      raining = input("Raining: ").lower()
+      if raining in yes:
+        umbrella = input("Umbrella: ").lower()
+        if umbrella in yes:
+          print("Good job staying dry!")
         else:
-            raining = input("Is it raining? ").strip().lower()
-            if raining.startswith("y"):
-                umbrella = input("Do you have an umbrella? ").strip().lower()
-                if umbrella.startswith("y"):
-                    print("Good job staying dry!")
-                else:
-                    print("You must enjoy getting wet!")
-    
-    elif temperature > 90:
-        ac = input("Do you have air conditioning? ").strip().lower()
-        if ac.startswith("y"):
-            print("Stay cool indoors.")
-        else:
-            print("I hope you have a fan.")
+          print("You must enjoy getting wet!")
